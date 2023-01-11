@@ -32,7 +32,7 @@ public class RestPropertyController {
                 consumes = MediaType.APPLICATION_JSON_VALUE,
                 produces = MediaType.APPLICATION_JSON_VALUE,
                
-                method = RequestMethod.POST
+                method = RequestMethod.GET
             )                                 
             public ResponseEntity<Object> viewAllProperty(@RequestBody Property property) {
 
@@ -61,7 +61,7 @@ public class RestPropertyController {
                 consumes = MediaType.APPLICATION_JSON_VALUE,
                 produces = MediaType.APPLICATION_JSON_VALUE,
                
-                method = RequestMethod.POST
+                method = RequestMethod.GET
             )                                 
             public ResponseEntity<Object> viewPropertyAgentbyId(@PathVariable Integer agentId) {
 

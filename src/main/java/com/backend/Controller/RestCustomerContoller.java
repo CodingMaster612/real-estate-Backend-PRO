@@ -83,10 +83,11 @@ public class RestCustomerContoller{
      }
  }
  
+ // make a reqursting mapping view all of the owned  property 
  
-	//view all customer id to show products used by the id given	 
+ //build a one to many to get a customer id to the product_id and fioren key
 		 
-		 
+		 //make a purshase mapping that saves to tey databases 
 		 
 		 
 		 
