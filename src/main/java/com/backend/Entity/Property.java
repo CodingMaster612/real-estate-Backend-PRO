@@ -107,6 +107,8 @@ public class Property {
 					+ ", contact=" + contact + ", posted=" + posted + ", images=" + images + "]";
 		}
 		
+		//if prduct date is 90 days apply a 10% discount from the orginal price of the property
+		
 		
 		
 }
