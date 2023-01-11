@@ -21,4 +21,10 @@ public class PropertyService {
     public List<Property> viewAllProperty() {
         return propertyRepo.findAll();
     }
+    
+    
+    public Property getPropertyAgentById(Integer agentId) {
+
+        return propertyRepo.findById(agentId).get();
+    }
 }

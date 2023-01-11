@@ -84,7 +84,7 @@ public class RestCustomerContoller{
  }
  
  
-		 
+	//view all customer id to show products used by the id given	 
 		 
 		 
 		 
