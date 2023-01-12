@@ -83,16 +83,16 @@ public class RestCustomerContoller{
      }
  }
  
- @RequestMapping(value = "/purchase/{propertyId}",
+ @RequestMapping(value = "/purchase/{propertyId}/{customerId}",
          consumes = MediaType.APPLICATION_JSON_VALUE,
          produces = MediaType.APPLICATION_JSON_VALUE,
          method = RequestMethod.POST
          )
- public ResponseEntity<Object> purchaseProperty(@RequestBody Property property , @PathVariable Integer propertyId) {
+ public ResponseEntity<Object> purchaseProperty(@RequestBody Property property , @PathVariable Integer propertyId , @PathVariable Integer customerId) {
 
      try {
          
-    	 Customers purchase = customerService.buyProperty(propertyId, propertyId);
+    	 Customers purchase = customerService.buyProperty(propertyId, customerId);
     	 
          
          if(purchase == null) {
