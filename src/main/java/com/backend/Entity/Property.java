@@ -46,7 +46,7 @@ public class Property {
 		private String images;
 		
 		@Column(name="date")
-		private String date;
+		private Integer date;
 		
 		@Column(name="discounted")
 		private Integer discounted;
@@ -58,7 +58,7 @@ public class Property {
 		}
 
 		public Property(Integer id, String location, String size, Integer price, String contact, String posted,
-				String images, String date, Integer discounted) {
+				String images, Integer date, Integer discounted) {
 			super();
 			this.id = id;
 			this.location = location;
@@ -127,11 +127,11 @@ public class Property {
 			this.images = images;
 		}
 
-		public String getDate() {
+		public Integer getDate() {
 			return date;
 		}
 
-		public void setDate(String date) {
+		public void setDate(Integer date) {
 			this.date = date;
 		}
 
@@ -149,6 +149,7 @@ public class Property {
 					+ ", contact=" + contact + ", posted=" + posted + ", images=" + images + ", date=" + date
 					+ ", discounted=" + discounted + "]";
 		}
+
 
 		
 		
