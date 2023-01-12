@@ -28,4 +28,31 @@ public class PropertyService {
 
         return propertyRepo.findById(agentId).get();
     }
+    
+    public Property getCustomertById(Integer propertyId) {
+
+        return propertyRepo.findById(propertyId).get();
+    }
+    
+    public Property findCustomerPropertyById(Integer customerId) {
+    	
+        return propertyRepo.findById(customerId).get();
+    }
+    
+    
+    public Property purchaseProperty(Property property) {
+
+        return propertyRepo.save(property);
+        
+    }
+
+	public Property findPropertyeById(Integer propertyId) {
+		return propertyRepo.findById(propertyId).get();
+	}
+    
+	
+   
+    
+    
+    
 }

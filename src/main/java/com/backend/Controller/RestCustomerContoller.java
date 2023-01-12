@@ -15,8 +15,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 import com.backend.Entity.Customers;
-
+import com.backend.Entity.Property;
 import com.backend.Service.CustomerService;
+import com.backend.Service.PropertyService;
 
 @RestController
 @CrossOrigin(origins="*")
@@ -28,10 +29,11 @@ public class RestCustomerContoller{
 	
 
  @Autowired
- CustomerService costumerService;
+ CustomerService customerService;
 
  
- 
+ @Autowired 
+ PropertyService propertyService;
  
  
  
@@ -41,13 +43,11 @@ public class RestCustomerContoller{
  		produces = MediaType.APPLICATION_JSON_VALUE,
  		method = RequestMethod.POST
  		)
- // We return a ResponseEntity<Object> because the object returned may vary, could be user, could be an error
- // The RequestBody is the information sent to us to process, post and put has request body, get and delete do not
- // Request body is encrypted, always send password through a post request
+ 
  public ResponseEntity<Object> signUp(@RequestBody Customers customer) {
  
      try {
-         Customers signedInCustomer = costumerService.save(customer);
+         Customers signedInCustomer = customerService.save(customer);
  
          // Give proper status codes, OK 200, BadRequest 400, INTERNAL_SERVER_ERROR 500
          return new ResponseEntity<>(signedInCustomer, HttpStatus.OK);
@@ -66,7 +66,7 @@ public class RestCustomerContoller{
  public ResponseEntity<Object> signIn(@RequestBody Customers customer) {
 
      try {
-         Customers signedInCustomer = costumerService.signIn(customer);
+         Customers signedInCustomer = customerService.signIn(customer);
          
          if(signedInCustomer == null) {
              
@@ -83,9 +83,32 @@ public class RestCustomerContoller{
      }
  }
  
- // make a reqursting mapping view all of the owned  property 
+ @RequestMapping(value = "/purchase/{propertyId}",
+         consumes = MediaType.APPLICATION_JSON_VALUE,
+         produces = MediaType.APPLICATION_JSON_VALUE,
+         method = RequestMethod.POST
+         )
+ public ResponseEntity<Object> purchaseProperty(@RequestBody Property property , @PathVariable Integer propertyId) {
+
+     try {
+         
+    	 Customers purchase = customerService.buyProperty(propertyId, propertyId);
+    	 
+         
+         if(purchase == null) {
+             
+             throw new Error("Invalid purchase");
+             
+         }
  
- //build a one to many to get a customer id to the product_id and fioren key
+         return new ResponseEntity<>(purchase, HttpStatus.OK);
+         
+     } catch(Exception e) {
+         return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+     } catch(Error e) {
+         return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+     }
+ }
 		 
 		 //make a purshase mapping that saves to tey databases 
 		 
