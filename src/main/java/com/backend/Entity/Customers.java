@@ -20,7 +20,7 @@ public class Customers {
 	private Integer id;
 	
 	
-	@Column(name="UserName")
+	@Column(name="username")
 	private String username;
 	
 	
@@ -76,6 +76,8 @@ public class Customers {
 	public String toString() {
 		return "Customers [id=" + id + ", username=" + username + ", password=" + password + "]";
 	}
+
+
 	
 	
 	
