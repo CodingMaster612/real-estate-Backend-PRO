@@ -35,7 +35,7 @@ public class RestPropertyController {
                
                 method = RequestMethod.GET
             )                                 
-            public ResponseEntity<Object> viewAllProperty(@RequestBody Property property) {
+            public ResponseEntity<Object> viewAllProperty() {
 
                 try {
 

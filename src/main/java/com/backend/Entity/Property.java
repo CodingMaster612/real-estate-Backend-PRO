@@ -156,7 +156,7 @@ public class Property {
 
 		
 		
-		
+		 //use `` to have a path variable  ${propertyId}
 		//if prduct date is 90 days apply a 10% discount from the orginal price of the property
 		
 		
