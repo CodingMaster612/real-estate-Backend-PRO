@@ -33,7 +33,7 @@ public class RestPropertyController {
                 consumes = MediaType.APPLICATION_JSON_VALUE,
                 produces = MediaType.APPLICATION_JSON_VALUE,
                
-                method = RequestMethod.GET
+                method = RequestMethod.POST
             )                                 
             public ResponseEntity<Object> viewAllProperty() {
 
@@ -43,7 +43,7 @@ public class RestPropertyController {
                     List<Property> getProperty = propertyService.viewAllProperty();
 
                     // return the data on success
-                    return new ResponseEntity<>(getProperty, HttpStatus.CREATED);
+                    return new ResponseEntity<>(getProperty, HttpStatus.OK);
 
                     //  Catches will catch any error that happens in the process and return the message
                 } catch(Exception e) {
