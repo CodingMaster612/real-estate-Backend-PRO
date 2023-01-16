@@ -30,10 +30,10 @@ public class RestPropertyController {
     
         @RequestMapping(
                 value="/viewAll",
-                consumes = MediaType.APPLICATION_JSON_VALUE,
+                
                 produces = MediaType.APPLICATION_JSON_VALUE,
                
-                method = RequestMethod.POST
+                method = RequestMethod.GET
             )                                 
             public ResponseEntity<Object> viewAllProperty() {
 
