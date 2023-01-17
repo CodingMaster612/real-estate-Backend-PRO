@@ -26,7 +26,7 @@ public class RestPropertyController {
 
 	@Autowired
 	PropertyService propertyService;
-	
+
     
         @RequestMapping(
                 value="/viewAll",

@@ -92,9 +92,9 @@ public class RestCustomerContoller{
 
      try {
          
-    	 Customers purchase = customerService.buyProperty(propertyId, customerId);
+    	 Customers purchase = customerService.buyProperty(customerId, propertyId);
     	 
-         
+         //swicth
          if(purchase == null) {
              
              throw new Error("Invalid purchase");
