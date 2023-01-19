@@ -1,5 +1,7 @@
 package com.backend.Controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 
@@ -102,6 +104,35 @@ public class RestCustomerContoller{
          }
  
          return new ResponseEntity<>(purchase, HttpStatus.OK);
+         
+     } catch(Exception e) {
+         return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+     } catch(Error e) {
+         return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+     }
+ }
+		 
+		 
+		 
+ @RequestMapping(value = "/viewAllHouse/{customerId}",
+         consumes = MediaType.APPLICATION_JSON_VALUE,
+         produces = MediaType.APPLICATION_JSON_VALUE,
+         method = RequestMethod.GET
+         )
+ public ResponseEntity<Object> findCustomerById(@PathVariable Integer customerId) {
+
+     try {
+         
+    	 
+    	 
+         Customers customer = customerService.findCustomerById(customerId);
+         if(customer == null) {
+             
+             throw new Error("Invalid");
+             
+         }
+ 
+         return new ResponseEntity<>(customer, HttpStatus.OK);
          
      } catch(Exception e) {
          return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
